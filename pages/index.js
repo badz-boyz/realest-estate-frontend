@@ -1,11 +1,9 @@
-import Image from "next/image";
-import logo from '../public/logo.png';
+import Navbar from "../components/navbar";
 
 export default function Home() {
   return (
-    <main>
-      coming soon
-      <Image src={logo} alt="realest estate logo" className="logo" />
-    </main>
-  );
+    <div>
+      <Navbar />
+    </div>
+  )
 }
