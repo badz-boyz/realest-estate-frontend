@@ -1,39 +1,41 @@
 import { useState } from 'react';
+import axios from 'axios';
 import CardsContainer from './CardContainer';
 
-export default function SearchComponent() {
+export default function SearchComponent({fetchCardsData}) {
   const [searchTerm, setSearchTerm] = useState('');
 
   // Placeholder for your handleSubmit function
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    // Logic to handle the search submission
-    // For example, making a request to your backend with the searchTerm
+    fetchCardsData(searchTerm);
+
   };
 
-  const cardsData = [
-    {
-      id: 1,
-      imageSrc: '/images/house1.jpg',
-      title: 'House in the City',
-      description: 'A beautiful city house with modern amenities.',
-      address: '123 City Avenue, Metropolis',
-    },
-    {
-      id: 2,
-      imageSrc: '/images/house2.jpg',
-      title: 'Country Retreat',
-      description: 'Escape to the country in this cozy cottage.',
-      address: '456 Country Road, Countryside',
-    },
-    {
-      id: 3,
-      imageSrc: '/images/house3.jpg',
-      title: 'Beachfront Villa',
-      description: 'Wake up to the ocean in this stunning villa.',
-      address: '789 Ocean Drive, Beachtown',
-    },
-  ];
+
+  // const cardsData = [
+  //   {
+  //     id: 1,
+  //     imageSrc: '/images/house1.jpg',
+  //     title: 'House in the City',
+  //     description: 'A beautiful city house with modern amenities.',
+  //     address: '123 City Avenue, Metropolis',
+  //   },
+  //   {
+  //     id: 2,
+  //     imageSrc: '/images/house2.jpg',
+  //     title: 'Country Retreat',
+  //     description: 'Escape to the country in this cozy cottage.',
+  //     address: '456 Country Road, Countryside',
+  //   },
+  //   {
+  //     id: 3,
+  //     imageSrc: '/images/house3.jpg',
+  //     title: 'Beachfront Villa',
+  //     description: 'Wake up to the ocean in this stunning villa.',
+  //     address: '789 Ocean Drive, Beachtown',
+  //   },
+  // ];
 
   return (
     // This div wraps the entire component, ensuring it fills at least the viewport height
@@ -59,7 +61,6 @@ export default function SearchComponent() {
           </div>
         </form>
       </div>
-      <CardsContainer searchTerm={searchTerm} />
     </div>
   );
 }

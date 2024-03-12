@@ -1,9 +1,11 @@
 import Card from './Card';
 
-function CardsContainer({ searchTerm }) {
-  // Fetch data based on searchTerm or load default data
+function CardsContainer({cardsData }) {
+  
+  console.log(cardsData);
 
-  const cardsData = [
+
+  const sampleData = [
     {
       id: 1,
       imageSrc: '/images/house1.jpg',
@@ -27,9 +29,12 @@ function CardsContainer({ searchTerm }) {
     },
   ];
 
+  const dataToDisplay = cardsData.length > 0 ? cardsData : sampleData;
+
+
   return (
     <div className="mt-8 flex flex-wrap justify-center gap-4 p-4">
-        {cardsData.map((card) => (
+        {dataToDisplay.map((card) => (
           <Card
             key={card.id}
             imageSrc={card.imageSrc}
