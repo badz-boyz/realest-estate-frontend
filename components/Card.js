@@ -10,6 +10,12 @@ function Card({ imageSrc, title, description, address }) {
           layout="fill" // This makes the image cover the div, adjust as needed
           objectFit="cover" // Adjust how the image fits within the div
         />
+      {/* <div className="card">
+        <img src={imageSrc} alt={title} />
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <p>{address}</p>
+      </div> */}
       </div>
         <div className="p-5">
           <h5 className="text-lg font-semibold text-gray-900 dark:text-white">{title}</h5>
