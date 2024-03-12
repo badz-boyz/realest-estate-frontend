@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../public/logo.png";
-
 export default function Navbar() {
   return (
     <nav
@@ -9,26 +8,33 @@ export default function Navbar() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        backgroundColor: "#333",
+        backgroundColor: "darkblue",
         padding: "10px 20px",
       }}
     >
       <div style={{ marginRight: "auto" }}>
         {/* Home */}
         <div>
-          <Image src={logo} alt="realest estate logo" width={75} height={75} />
+          <Image src={logo} alt="realest estate logo" width={100} height={75} style={{ borderRadius: "50%" }} />
         </div>
       </div>
-
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
         {/* Saved Homes */}
-        <h2 style={{ color: "white" }}>Saved Homes</h2>
-
+        <Link href="/saved-homes">
+          <span style={{ color: "white", textDecoration: "none" }}>
+            Saved Homes
+          </span>
+        </Link>
         {/* Log In */}
-        <h2 style={{ color: "white" }}>Log In</h2>
-
+        <Link href="/login">
+          <span style={{ color: "white", textDecoration: "none" }}>Log In</span>
+        </Link>
         {/* Sign Up */}
-        <h2 style={{ color: "white" }}>Sign Up</h2>
+        <Link href="/signup">
+          <span style={{ color: "white", textDecoration: "none" }}>
+            Sign Up
+          </span>
+        </Link>
       </div>
     </nav>
   );
