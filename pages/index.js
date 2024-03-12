@@ -1,11 +1,47 @@
-import Image from "next/image";
-import logo from '../public/logo.png';
+import { useState } from 'react';
+import axios from 'axios';
+import SearchComponent from "../components/InputSearch";
+import CardsContainer from "../components/CardContainer";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
+  const [cardsData, setCardsData] = useState([]);
+
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  const fetchCardsData = async (searchTerm) => {
+    try {
+      const response = await axios.get(`http://localhost:8000/listings/${encodeURIComponent(searchTerm)}`);
+      const listings = response.data;
+  
+      // Transform the object into an array and assign random stock photos
+      const transformedData = Object.keys(listings).map((address, index) => {
+        return {
+          id: index,
+          imageSrc: `/images/house${getRandomInt(1, 20)}.jpg`,
+          title: address,
+          description: listings[address].description,
+          address: `${address}, ${listings[address].city}`,
+        };
+      });
+  
+      setCardsData(transformedData);
+    } catch (error) {
+      console.error("Failed to fetch data: ", error);
+    }
+  };
+  
+
   return (
-    <main>
-      coming soon
-      <Image src={logo} alt="realest estate logo" className="logo" />
-    </main>
+    <div>
+      <Navbar />
+      <SearchComponent fetchCardsData={fetchCardsData} />
+      <CardsContainer key={cardsData.length} cardsData={cardsData} />
+    </div>
   );
 }
