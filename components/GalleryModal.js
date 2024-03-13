@@ -1,10 +1,10 @@
-// components/DetailedModal.js
 import { Dialog } from '@headlessui/react';
+import { useState } from 'react';
 import Image from 'next/image';
 
 export default function DetailedModal({ listing, onClose }) {
+    
   const [isLiked, setIsLiked] = useState(false); // Assuming you want to track like status here
-
   const toggleLike = () => setIsLiked(!isLiked);
 
   if (!listing) return null; // Guard clause if no listing is provided

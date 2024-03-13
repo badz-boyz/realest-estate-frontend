@@ -13,10 +13,12 @@ export default function SearchResultsPage() {
   const fetchCardsData = async (searchTerm) => {
     try {
       const response = await axios.get(`http://localhost:8000/listings/${encodeURIComponent(searchTerm)}`);
-      const listingsArray = Object.keys(response.data).map(key => {
+      const listingsArray = Object.keys(response.data).map((key, index) => {
         return {
           address: key,
-          ...response.data[key] // Spread the rest of the property details
+          ...response.data[key],
+          // Assign a random image from your public/images folder
+          imageSrc: `/images/house${getRandomInt(1, 20)}.jpg`, // Ensure you have images named house1.jpg through house20.jpg
         };
       });
       setAllHouses(listingsArray);
@@ -25,6 +27,12 @@ export default function SearchResultsPage() {
       console.error("Failed to fetch data:", error);
     }
   };
+
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
   useEffect(() => {
     // Calculate and set the displayed houses based on the current page
