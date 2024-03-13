@@ -2,7 +2,6 @@ import { useState } from 'react';
 import axios from 'axios';
 import SearchComponent from "../components/InputSearch";
 import CardsContainer from "../components/CardContainer";
-import Navbar from "../components/Navbar";
 
 export default function Home() {
   const [cardsData, setCardsData] = useState([]);
@@ -39,7 +38,6 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar />
       <SearchComponent fetchCardsData={fetchCardsData} />
       <CardsContainer key={cardsData.length} cardsData={cardsData} />
     </div>
