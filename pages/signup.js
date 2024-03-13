@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function Signup() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
 
   const handleEmailChange = (e) => {
@@ -17,23 +17,34 @@ export default function Signup() {
     setRememberMe(!rememberMe);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send data to backend or perform further actions
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Remember Me:', rememberMe);
-    // Reset form fields after submission
-    setEmail('');
-    setPassword('');
-    setRememberMe(false);
+
+    try {
+      // Make a POST request to the backend
+      const response = await axios.get(
+        `https://realest-estate-backend.vercel.app/signup/${email}`
+      ); // Handle form submission, e.g., send data to backend or perform further actions
+      console.log("Email:", email);
+      console.log("Password:", password);
+      console.log("Remember Me:", rememberMe);
+      // Reset form fields after submission
+      setEmail("");
+      setPassword("");
+      setRememberMe(false);
+    } catch (error) {
+      console.error("Failed to fetch data: ", error);
+    }
   };
 
   return (
     <div className="container p-20 mx-auto">
       <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
         <div className="mb-5">
-          <label htmlFor="email" className="block mb-2 text-sm font-medium text-black">
+          <label
+            htmlFor="email"
+            className="block mb-2 text-sm font-medium text-black"
+          >
             Your email
           </label>
           <input
@@ -47,7 +58,10 @@ export default function Signup() {
           />
         </div>
         <div className="mb-5">
-          <label htmlFor="password" className="block mb-2 text-sm font-medium text-black">
+          <label
+            htmlFor="password"
+            className="block mb-2 text-sm font-medium text-black"
+          >
             Your password
           </label>
           <input
@@ -70,7 +84,10 @@ export default function Signup() {
               required
             />
           </div>
-          <label htmlFor="remember" className="text-sm font-medium text-black ms-2">
+          <label
+            htmlFor="remember"
+            className="text-sm font-medium text-black ms-2"
+          >
             Remember me
           </label>
         </div>
