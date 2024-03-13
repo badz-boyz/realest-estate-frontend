@@ -9,7 +9,7 @@ export default function Navbar() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        backgroundColor: "darkblue",
+        backgroundColor: "black",
         padding: "10px 20px",
       }}
     >
