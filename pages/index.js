@@ -3,9 +3,6 @@ import axios from 'axios';
 import SearchComponent from "../components/InputSearch";
 import CardsContainer from "../components/CardContainer";
 import EmblaCarousel from '../components/EmblaCarousel';
-import '../css/base.css'
-import '../css/sandbox.css'
-import '../css/embla.css'
 
 const OPTIONS = { loop: true };
 const SLIDE_COUNT = 8;

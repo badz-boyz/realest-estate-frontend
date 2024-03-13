@@ -1,0 +1,25 @@
+[
+    {
+      "id": 1,
+      "imageUrl": "/path/to/image1.jpg",
+      "title": "Slide Title 1",
+      "description": "This is the first slide description.",
+      "link": "#"
+    },
+    {
+      "id": 2,
+      "imageUrl": "/path/to/image2.jpg",
+      "title": "Slide Title 2",
+      "description": "This is the second slide description.",
+      "link": "#"
+    },
+    {
+        "id": 3,
+        "imageUrl": "/path/to/image3.jpg",
+        "title": "Slide Title 3",
+        "description": "This is the second slide description.",
+        "link": "#"
+      }
+
+  ]
+  
