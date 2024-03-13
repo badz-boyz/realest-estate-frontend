@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 import CardsContainer from './CardContainer';
 
 export default function SearchComponent({fetchCardsData}) {
@@ -39,18 +38,18 @@ export default function SearchComponent({fetchCardsData}) {
 
   return (
     // This div wraps the entire component, ensuring it fills at least the viewport height
-    <div className="flex flex-col min-h-screen bg-cover bg-center" style={{backgroundImage: "url('/images/minecraft.png')"}}>
+    <div className="flex flex-col min-h-screen bg-center bg-cover" style={{backgroundImage: "url('/images/minecraft.png')"}}>
       
       {/* Search bar container */}
       <div className="flex flex-col items-center justify-center p-10">
         <form onSubmit={handleSubmit} className="w-full max-w-md">
           <h1 className="mb-4 text-4xl font-bold text-black">Your Dream Home Awaits</h1>
-          <div className="flex border-2 border-blue-500 rounded-lg overflow-hidden">
+          <div className="flex overflow-hidden border-2 border-blue-500 rounded-lg">
             <input
               type="search"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="px-4 py-2 w-full text-black"
+              className="w-full px-4 py-2 text-black"
               placeholder="Search..."
             />
             <button type="submit" className="flex items-center justify-center px-4 border-l border-blue-500">

@@ -16,7 +16,11 @@ export default function Navbar() {
       <div style={{ marginRight: "auto" }}>
         {/* Home */}
         <div>
-          <Image src={logo} alt="realest estate logo" width={100} height={75} style={{ borderRadius: "50%" }} />
+          <Link href="/">
+            <span>
+              <Image src={logo} alt="realest estate logo" width={100} height={75} style={{ borderRadius: "50%" }} />
+            </span>
+          </Link>
         </div>
       </div>
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
