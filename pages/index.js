@@ -2,6 +2,14 @@ import { useState } from 'react';
 import axios from 'axios';
 import SearchComponent from "../components/InputSearch";
 import CardsContainer from "../components/CardContainer";
+import EmblaCarousel from '../components/EmblaCarousel';
+import '../css/base.css'
+import '../css/sandbox.css'
+import '../css/embla.css'
+
+const OPTIONS = { loop: true };
+const SLIDE_COUNT = 8;
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 export default function Home() {
   const [cardsData, setCardsData] = useState([]);
@@ -40,6 +48,7 @@ export default function Home() {
     <div>
       <SearchComponent fetchCardsData={fetchCardsData} />
       <CardsContainer key={cardsData.length} cardsData={cardsData} />
+      <EmblaCarousel slides={SLIDES} options={OPTIONS} />
     </div>
   );
 }
