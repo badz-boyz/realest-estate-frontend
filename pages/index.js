@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import SearchComponent from "../components/InputSearch";
+import SearchComponent from "../components/SearchComponent";
 import CardsContainer from "../components/CardContainer";
 import EmblaCarousel from '../components/EmblaCarousel';
 
@@ -20,7 +20,7 @@ export default function Home() {
 
   const fetchCardsData = async (searchTerm) => {
     try {
-      const response = await axios.get(`https://realest-estate-backend.vercel.app/listings/${encodeURIComponent(searchTerm)}`);
+      const response = await axios.get(`http://localhost:8000/listings/${encodeURIComponent(searchTerm)}`);
       const listings = response.data;
   
       // Transform the object into an array and assign random stock photos

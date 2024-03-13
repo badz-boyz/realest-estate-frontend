@@ -24,6 +24,11 @@ export default function Navbar() {
         </div>
       </div>
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+      <Link href="/search-results">
+        <span style={{ color: "white", textDecoration: "none" }}>
+            Search
+        </span>
+      </Link>
         {/* Saved Homes */}
         <Link href="/saved-homes">
           <span style={{ color: "white", textDecoration: "none" }}>
