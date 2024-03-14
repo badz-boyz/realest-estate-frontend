@@ -20,16 +20,16 @@ export default function Signup() {
 
     try {
       // Make a POST request to the backend
-      const response = await axios.post(
-        `https://realest-estate-backend.vercel.app/signup/${email}`
+      const response = await axios.get(
+        `http://127.0.0.1:8000/signup/${email}`
       ); // Handle form submission, e.g., send data to backend or perform further actions
       console.log("Email:", email);
       console.log("Password:", password);
-      console.log("Remember Me:", rememberMe);
+      // console.log("Remember Me:", rememberMe);
       // Reset form fields after submission
       setEmail("");
       setPassword("");
-      setRememberMe(false);
+      // setRememberMe(false); // get linter set up, setRememberMe is not defined
     } catch (error) {
       console.error("Failed to fetch data: ", error);
     }
@@ -73,7 +73,7 @@ export default function Signup() {
         </div>
         <div className="flex items-start mb-5">
         </div>
-        <button
+        <button onClick={handleSubmit}
           type="submit"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
