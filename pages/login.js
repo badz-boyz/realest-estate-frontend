@@ -1,11 +1,16 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import axios from 'axios';
+import { useAuth } from '../context/AuthContext'; // Adjust the path as necessary
+
 
 export default function Signup() {
+    
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const router = useRouter();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -19,6 +24,8 @@ export default function Signup() {
     setRememberMe(!rememberMe);
   };
 
+  const { login } = useAuth(); // Use the useAuth hook to access login function
+
   const handleSubmit = async (e) => {
     e.preventDefault();
   
@@ -28,12 +35,14 @@ export default function Signup() {
         password: password,
       };
   
-      const response = await axios.post(
-        `http://localhost:8000/login/`, // Update this URL to your actual login endpoint
-        userData
-      );
+      const response = await axios.post(`http://localhost:8000/login/`, userData);
       console.log("Login successful:", response.data);
-      // Reset form fields after submission
+      
+      login(response.data); // Update the global auth state with the user info
+  
+      router.push('/'); // Navigate back to the homepage or another page
+      
+      // Optionally reset form fields after submission
       setEmail("");
       setPassword("");
       setRememberMe(false);
@@ -41,6 +50,7 @@ export default function Signup() {
       console.error("Failed to login: ", error);
     }
   };
+  
   
 
   return (

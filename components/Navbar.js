@@ -1,8 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../public/logo.png";
+import { useAuth } from '../context/AuthContext'; // Adjust the import path as needed
 
 export default function Navbar() {
+  const { user, logout } = useAuth(); // Assuming logout clears the user state
+  console.log("Navbar user state:", user);
+
   return (
     <nav
       style={{
@@ -14,37 +18,32 @@ export default function Navbar() {
       }}
     >
       <div style={{ marginRight: "auto" }}>
-        {/* Home */}
-        <div>
-          <Link href="/">
-            <span>
-              <Image src={logo} alt="realest estate logo" width={100} height={75} style={{ borderRadius: "50%" }} />
-            </span>
-          </Link>
-        </div>
+        <Link href="/" passHref>
+          <Image src={logo} alt="realest estate logo" width={100} height={75} style={{ borderRadius: "50%" }} />
+        </Link>
       </div>
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-      <Link href="/search-results">
-        <span style={{ color: "white", textDecoration: "none" }}>
-            Search
-        </span>
-      </Link>
-        {/* Saved Homes */}
-        <Link href="/saved-homes">
-          <span style={{ color: "white", textDecoration: "none" }}>
-            Saved Homes
-          </span>
+        <Link href="/search-results" passHref>
+          <span style={{ color: "white", cursor: "pointer" }}>Search</span>
         </Link>
-        {/* Log In */}
-        <Link href="/login">
-          <span style={{ color: "white", textDecoration: "none" }}>Log In</span>
+        <Link href="/saved-homes" passHref>
+          <span style={{ color: "white", cursor: "pointer" }}>Saved Homes</span>
         </Link>
-        {/* Sign Up */}
-        <Link href="/signup">
-          <span style={{ color: "white", textDecoration: "none" }}>
-            Sign Up
-          </span>
-        </Link>
+        {user ? (
+          <>
+            <span style={{ color: "white" }}>{user.email}</span> {/* Display user email or another identifier */}
+            <button onClick={logout} style={{ color: "white", background: "none", border: "none", cursor: "pointer" }}>Logout</button>
+          </>
+        ) : (
+          <>
+            <Link href="/login" passHref>
+              <span style={{ color: "white", cursor: "pointer" }}>Log In</span>
+            </Link>
+            <Link href="/signup" passHref>
+              <span style={{ color: "white", cursor: "pointer" }}>Sign Up</span>
+            </Link>
+          </>
+        )}
       </div>
     </nav>
   );
