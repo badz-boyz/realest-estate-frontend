@@ -1,11 +1,11 @@
 /* EmblaCarousel.module.css */
 
 .embla {
-    max-width: 60rem;
+    max-width: 80rem;
     margin: auto;
     --slide-height: 19rem;
     --slide-spacing: 1rem;
-    --slide-size: 60%;
+    --slide-size: 70%;
   }
   
   .embla__viewport {
@@ -45,7 +45,7 @@
   
   .card {
     display: flex;
-    width: 100%;
+    width: 40%;
     background: white;
     border-radius: 8px;
     overflow: hidden;
