@@ -21,23 +21,27 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      // Make a POST request to the backend
-      const response = await axios.get(
-        `https://realest-estate-backend.vercel.app/signup/${email}`
-      ); // Handle form submission, e.g., send data to backend or perform further actions
-      console.log("Email:", email);
-      console.log("Password:", password);
-      console.log("Remember Me:", rememberMe);
+      const userData = {
+        email: email,
+        password: password,
+      };
+  
+      const response = await axios.post(
+        `http://localhost:8000/login/`, // Update this URL to your actual login endpoint
+        userData
+      );
+      console.log("Login successful:", response.data);
       // Reset form fields after submission
       setEmail("");
       setPassword("");
       setRememberMe(false);
     } catch (error) {
-      console.error("Failed to fetch data: ", error);
+      console.error("Failed to login: ", error);
     }
   };
+  
 
   return (
     <div className="container p-20 mx-auto">
