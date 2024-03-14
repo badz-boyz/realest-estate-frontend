@@ -15,23 +15,48 @@ export default function Signup() {
   };
 
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     // Make a POST request to the backend
+  //     const response = await axios.post(
+  //       `http://localhost:8000/signup/${email}`
+  //     ); // Handle form submission, e.g., send data to backend or perform further actions
+  //     console.log("Email:", email);
+  //     console.log("Password:", password);
+  //     console.log("Remember Me:", rememberMe);
+  //     // Reset form fields after submission
+  //     setEmail("");
+  //     setPassword("");
+  //     setRememberMe(false);
+  //   } catch (error) {
+  //     console.error("Failed to fetch data: ", error);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      // Make a POST request to the backend
-      const response = await axios.post(
-        `https://realest-estate-backend.vercel.app/signup/${email}`
-      ); // Handle form submission, e.g., send data to backend or perform further actions
-      console.log("Email:", email);
-      console.log("Password:", password);
-      console.log("Remember Me:", rememberMe);
+      const userData = {
+        email: email,
+        password: password, // Make sure this includes the password
+      };
+  
+      const response = await axios.post('http://localhost:8000/signup/', userData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      console.log("Response:", response.data);
+  
       // Reset form fields after submission
       setEmail("");
       setPassword("");
-      setRememberMe(false);
     } catch (error) {
-      console.error("Failed to fetch data: ", error);
+      console.error("Failed to create user account: ", error.response.data);
     }
   };
 

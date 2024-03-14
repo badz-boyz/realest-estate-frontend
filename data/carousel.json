@@ -1,0 +1,30 @@
+[
+    {
+      "imageSrc": "/path/to/image.jpg",
+      "title": "Slide Title",
+      "description": "Slide Description",
+      "profilePic": "/path/to/profile.jpg",
+      "rating": 5
+    },
+    {
+        "imageSrc": "/path/to/image.jpg",
+        "title": "Slide Title",
+        "description": "Slide Description",
+        "profilePic": "/path/to/profile.jpg",
+        "rating": 5
+    },
+    {
+        "imageSrc": "/path/to/image.jpg",
+        "title": "Slide Title",
+        "description": "Slide Description",
+        "profilePic": "/path/to/profile.jpg",
+        "rating": 5
+    },
+    {
+        "imageSrc": "/path/to/image.jpg",
+        "title": "Slide Title",
+        "description": "Slide Description",
+        "profilePic": "/path/to/profile.jpg",
+        "rating": 5
+    }
+]
