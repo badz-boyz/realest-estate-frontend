@@ -60,7 +60,7 @@ export default function SearchResultsPage() {
         <span className="text-sm text-gray-700 dark:text-gray-400">
           Showing <span className="font-semibold text-gray-900 dark:text-white">{(currentPage - 1) * itemsPerPage + 1}</span> to <span className="font-semibold text-gray-900 dark:text-white">{Math.min(currentPage * itemsPerPage, allHouses.length)}</span> of <span className="font-semibold text-gray-900 dark:text-white">{allHouses.length}</span> Entries
         </span>
-        <div className="inline-flex mt-2">
+        <div className="inline-flex mt-2 mb-6">
           <button onClick={handlePrevPage} className="px-4 py-2 mx-1 bg-gray-300 rounded-md">
             Prev
           </button>
