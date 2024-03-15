@@ -4,13 +4,13 @@ export default function Footer(){
           <div className="max-w-6xl mx-auto px-4 py-10 md:py-12">
             <div className="xl:flex lg:flex md:flex pt-6">
               <div className="xl:w-1/3 lg:w-1/3 md:w-1/3 mb-6 flex justify-center md:justify-start">
-                <a href="#" className="text-xl font-bold">Brand</a>
+                <a href="#" className="text-xl font-bold">Realest Estate</a>
               </div>
     
               <div className="xl:w-1/3 lg:w-1/3 md:w-1/3 mb-6">
                 <h6 className="uppercase font-bold mb-2 flex justify-center md:justify-start">Links</h6>
                 <p className="flex items-center justify-center md:justify-start">
-                  <a href="#" className="text-white">Home</a>
+                  <a href="/" className="text-white">Home</a>
                   <span className="mx-2">|</span>
                   <a href="#" className="text-white">About</a>
                   <span className="mx-2">|</span>
@@ -32,7 +32,7 @@ export default function Footer(){
             </div>
     
             <div className="pt-6 mt-6 border-t border-gray-700 text-center">
-              <p>© 2024 Brand. All Rights Reserved.</p>
+              <p>© 2024 Realest Estate. All Rights Reserved.</p>
             </div>
           </div>
         </footer>

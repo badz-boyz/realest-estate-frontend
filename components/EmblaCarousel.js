@@ -11,9 +11,10 @@ import styles from './EmblaCarousel.module.css'
 const EmblaCarousel = (props) => {
   const { slides, options } = props
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    AutoScroll({ playOnInit: false })
+    AutoScroll({ playOnInit: true , delay: 500})
   ])
   const [isPlaying, setIsPlaying] = useState(false)
+
 
   const {
     prevBtnDisabled,
@@ -64,9 +65,9 @@ const EmblaCarousel = (props) => {
       <div className={styles.embla__viewport} ref={emblaRef}>
         <div className={styles.embla__container}>
         {slides.map((slide, index) => (
-    <div className={styles.embla__slide} key={index}>
-    <div className={styles.card}>
-      <img src={slide.imageSrc} alt={`Slide ${index}`} className={styles.card__image} />
+          <div className={styles.embla__slide} key={index}>
+          <div className={styles.card}>
+        <img src={slide.imageSrc} alt={`Slide ${index}`} className={styles.card__image} />
       <div className={styles.card__content}>
         <h3 className={styles.card__title}>{slide.title}</h3>
         <p className={styles.card__text}>{slide.description}</p>

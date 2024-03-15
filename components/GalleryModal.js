@@ -21,7 +21,7 @@ export default function DetailedModal({ listing, onClose }) {
             <div className="p-6 flex flex-col justify-between">
               <div>
                 <Dialog.Title className="text-2xl font-bold text-gray-900 mb-4">
-                  {listing.title}
+                  {listing.address}
                 </Dialog.Title>
                 <p className="text-lg text-gray-500">
                   {listing.description}
