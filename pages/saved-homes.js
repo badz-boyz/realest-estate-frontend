@@ -3,6 +3,22 @@ import { useState, useEffect } from "react";
 
 export default function SavedHomesPage() {
   const [savedHomes, setSavedHomes] = useState([]);
+  const sampleData = [
+    {
+      id: 1,
+      imageSrc: "/images/house1.jpg",
+      title: "House in the City",
+      description: "A beautiful city house with modern amenities.",
+      address: "123 City Avenue, Metropolis",
+    },
+    {
+      id: 2,
+      imageSrc: "/images/house2.jpg",
+      title: "Country Retreat",
+      description: "Escape to the country in this cozy cottage.",
+      address: "456 Country Road, Countryside",
+    },
+  ];
 
   useEffect(() => {
     // Fetch saved homes based on the user's email
@@ -24,13 +40,19 @@ export default function SavedHomesPage() {
   }, []); // Run only once on component mount
 
   return (
-    <div style={{ padding: "20px", textAlign: "center" }}>
-      <p style={{ fontSize: "28px", marginBottom: "20px" }}>
-        Your saved homes are displayed below
-      </p>
-      {savedHomes.map((home, index) => (
-        <Card key={index} {...home} />
-      ))}
-    </div>
+    <>
+      <h1 style={{ textAlign: 'center', fontSize: '2rem' }}>Your saved listings are below</h1>
+      <div className="flex flex-wrap justify-center gap-4 p-4 mt-8">
+        {sampleData.map((card) => (
+          <Card
+            key={card.id}
+            imageSrc={card.imageSrc}
+            title={card.title}
+            description={card.description}
+            address={card.address}
+          />
+        ))}
+      </div>
+    </>
   );
 }
