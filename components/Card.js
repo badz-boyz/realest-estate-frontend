@@ -19,7 +19,7 @@ function Card({ imageSrc, title, description, address }) {
     } catch (error) {
         console.error('Error sending data to server:', error);
     }
-    alert("Toggle Like")
+    // alert("Toggle Like")
 }
 
   return (
