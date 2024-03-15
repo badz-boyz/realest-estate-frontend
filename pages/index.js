@@ -3,6 +3,7 @@ import axios from 'axios';
 import SearchComponent from "../components/SearchComponent";
 import CardsContainer from "../components/CardContainer";
 import EmblaCarousel from '../components/EmblaCarousel';
+import staticslides from '../data/carousel';
 
 const OPTIONS = { loop: true };
 const SLIDE_COUNT = 8;
@@ -27,7 +28,7 @@ export default function Home() {
       const transformedData = Object.keys(listings).map((address, index) => {
         return {
           id: index,
-          imageSrc: `/images/house${getRandomInt(1, 20)}.jpg`,
+          imageSrc: `/images/house${getRandomInt(1, 31)}.jpg`,
           title: address,
           description: listings[address].description,
           address: `${address}, ${listings[address].city}`,

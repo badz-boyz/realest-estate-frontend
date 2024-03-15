@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import axios from 'axios';
+import { useRouter } from "next/router";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -55,6 +57,8 @@ export default function Signup() {
       // Reset form fields after submission
       setEmail("");
       setPassword("");
+      alert("Account created successfully!");
+      router.push('/login');
 
     } catch (error) {
       console.error("Failed to create user account: ", error.response.data);

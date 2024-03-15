@@ -32,7 +32,7 @@ export default function Navbar() {
         </Link>
         {user ? (
           <>
-            <span style={{ color: "white" }}>{user.email}</span> {/* Display user email or another identifier */}
+            <span style={{ color: "white", fontWeight: "bold" }}>Hi, Anonymous Wumpus{user.email}</span> {/* Display user email or another identifier */}
             <button onClick={logout} style={{ color: "white", background: "none", border: "none", cursor: "pointer" }}>Logout</button>
           </>
         ) : (

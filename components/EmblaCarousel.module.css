@@ -5,7 +5,7 @@
     margin: auto;
     --slide-height: 19rem;
     --slide-spacing: 1rem;
-    --slide-size: 70%;
+    --slide-size: 120%;
   }
   
   .embla__viewport {
@@ -71,5 +71,28 @@
   .card__text {
     margin-top: 0;
     font-size: 1rem;
+  }
+  
+  .embla__play {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    padding: 8px 16px; /* Larger padding for better touch target */
+    font-size: 16px; /* Larger font size for visibility */
+    cursor: pointer; /* Cursor indicates it's clickable */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s;
+    margin-bottom: 2rem;
+    display:flex;
+    
+  }
+  
+  .embla__play:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+  }
+  
+  .embla__play:disabled {
+    background-color: #ccc; /* Grayed out when disabled */
+    cursor: not-allowed; /* Show that it's not clickable */
   }
   
