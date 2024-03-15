@@ -1,5 +1,6 @@
 import { Dialog } from '@headlessui/react';
 import { useState } from 'react';
+import axios from 'axios';
 import Image from 'next/image';
 
 function Card({ imageSrc, title, description, address }) {
@@ -9,8 +10,8 @@ function Card({ imageSrc, title, description, address }) {
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
   // const toggleLike = () => setIsLiked(!isLiked); // Toggle the like status
-  async function toggleLike(user, address, description) {
-    const data = { user, address, description };
+  async function toggleLike(email, address, description) {
+    const data = { email, address, description };
     setIsLiked(!isLiked);
     try {
         const response = await axios.post('http://localhost:8000/save/', data);
@@ -18,6 +19,7 @@ function Card({ imageSrc, title, description, address }) {
     } catch (error) {
         console.error('Error sending data to server:', error);
     }
+    alert("Toggle Like")
 }
 
   return (
