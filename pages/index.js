@@ -45,7 +45,7 @@ export default function Home() {
     <div>
       <SearchComponent fetchCardsData={fetchCardsData} />
       <CardsContainer key={cardsData.length} cardsData={cardsData} />
-      <EmblaCarousel slides={SLIDES} options={OPTIONS} />
+      {/* <EmblaCarousel slides={SLIDES} options={OPTIONS} /> */}
     </div>
   );
 }

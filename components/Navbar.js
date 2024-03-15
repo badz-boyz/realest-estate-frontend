@@ -17,10 +17,11 @@ export default function Navbar() {
         padding: "10px 20px",
       }}
     >
-      <div style={{ marginRight: "auto" }}>
+      <div style={{display: "flex", justifyContent: "center", alignItems: "center", gap: "15px"}}>
         <Link href="/" passHref>
           <Image src={logo} alt="realest estate logo" width={100} height={75} style={{ borderRadius: "50%" }} />
         </Link>
+      <h1 style={{color: "white", fontSize: '48px'}}>Realest Estate</h1>
       </div>
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
         <Link href="/search-results" passHref>

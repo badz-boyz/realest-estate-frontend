@@ -11,10 +11,10 @@ const Gallery = ({ listings }) => {
 
   return (
     <div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid max-w-screen-lg grid-cols-2 gap-4 mx-auto md:grid-cols-3">
         {listings.map((listing, index) => (
           <div key={index} onClick={() => openModalWithListing(listing)}>
-            <img className="h-auto max-w-full rounded-lg" src={listing.imageSrc} alt={listing.title} />
+            <img className="h-auto max-w-full rounded-lg" src={listing.imageSrc} alt={listing.title} style={{ width: '415px', height: '275px', objectFit: 'cover' }}  />
           </div>
         ))}
       </div>
