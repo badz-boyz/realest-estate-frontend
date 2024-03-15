@@ -12,7 +12,7 @@ export default function SearchComponent({fetchCardsData}) {
 
   return (
     // This div wraps the entire component, ensuring it fills at least the viewport height
-    <div className="flex flex-col min-h-screen bg-center bg-cover" style={{backgroundImage: "url('/images/minecraft.png')"}}>
+    <div className="flex flex-col bg-center bg-cover" style={{backgroundImage: "url('/images/minecraft.png')", height: "400px"}}>
       
       {/* Search bar container */}
       <div className="flex flex-col items-center justify-center p-10">
@@ -24,9 +24,9 @@ export default function SearchComponent({fetchCardsData}) {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full px-4 py-2 text-black"
-              placeholder="Search..."
+              placeholder="Enter city name"
             />
-            <button type="submit" className="flex items-center justify-center px-4 border-l border-blue-500">
+            <button type="submit" className="flex items-center justify-center px-4 bg-blue-200 border-l border-blue-500">
                 <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
